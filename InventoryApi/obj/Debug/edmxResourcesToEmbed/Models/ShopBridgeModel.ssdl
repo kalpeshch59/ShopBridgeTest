@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MST_Category">
+    <Key>
+      <PropertyRef Name="Category_Id" />
+    </Key>
+    <Property Name="Category_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_On" Type="datetime" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="MST_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="nvarchar" MaxLength="50" />
+    <Property Name="In_Box_Details" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Created_On" Type="datetime" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_On" Type="datetime" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityContainer Name="InventoryTestModelStoreContainer">
+    <EntitySet Name="MST_Category" EntityType="Self.MST_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MST_Product" EntityType="Self.MST_Product" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
